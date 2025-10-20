@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -24,18 +25,22 @@ export default function Header() {
         </div>
 
         {/* Links desktop */}
-        <ul className="hidden md:flex items-center gap-8 relative z-10">
-          {["Início", "Sobre", "Projetos"].map((link) => (
-            <li key={link}>
-              <a
-                href={`#${link.toLowerCase()}`}
-                className="text-black font-medium hover:text-amber-600 transition-colors duration-300 bg-gray-600/80 p-4 rounded-full"
-              >
-                {link}
-              </a>
-            </li>
-          ))}
-        </ul>
+<ul className="hidden md:flex items-center gap-8 relative z-10">
+  {[
+    { name: "Início", path: "/ " },
+    { name: "Sobre", path: "/Sobre" },
+    { name: "Galeria", path: "/Galeria" },
+  ].map((link) => (
+    <li key={link.name}>
+      <Link
+        to={link.path}
+        className="text-black font-medium hover:text-amber-600 transition-colors duration-300 bg-gray-600/80 p-4 rounded-full"
+      >
+        {link.name}
+      </Link>
+    </li>
+  ))}
+</ul>
 
         {/* Fundo azul inclinado acima dos links */}
         <div className="absolute top-0 right-0 w-full md:w-2/3 h-2 bg-gray-50 skew-x-12 origin-top-right" />

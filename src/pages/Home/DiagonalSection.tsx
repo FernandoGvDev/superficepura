@@ -1,12 +1,13 @@
-import { motion } from "framer-motion";
-import { Coffee, Star, CheckCircle, Award, Layers, Feather } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Coffee, Star, CheckCircle, Award, Layers, Feather, Maximize2, X } from "lucide-react";
+import { useState, useEffect } from "react";
 
 interface Card {
   title: string;
   description: string;
   image: string;
   highlights?: string[];
-  attributes: { icon: any; label: string }[]; // ícones e labels específicos
+  attributes: { icon: any; label: string }[];
 }
 
 const cards: Card[] = [
@@ -25,7 +26,7 @@ const cards: Card[] = [
   {
     title: "Banheiro elegante:",
     description:
-      "Lavabo com design exclusivo. Neste projeto, a bancada e o revestimento de parede criam um visual clean e sofisticado. A execução precisa garante um acabamento impecável. Qualidade e atenção aos detalhes em cada projeto! Nossa execução de marmoraria transformou este lavabo em um ambiente de alto padrão, destacando a elegância da pedra e a precisão do nosso trabalho.",
+      "Lavabo com design exclusivo. Neste projeto, a bancada e o revestimento de parede criam um visual clean e sofisticado. A execução precisa garante um acabamento impecável.",
     image: "/img/projetos/lavabo.jpeg",
     highlights: ["Banheiro elegante:"],
     attributes: [
@@ -49,8 +50,20 @@ const cards: Card[] = [
 ];
 
 export default function DiagonalSplitCards() {
+  const [expandedImage, setExpandedImage] = useState<string | null>(null);
+
+  // Fechar imagem ao pressionar "voltar" no celular
+  useEffect(() => {
+    const handlePopState = () => setExpandedImage(null);
+    if (expandedImage) {
+      window.history.pushState(null, "", window.location.href);
+      window.addEventListener("popstate", handlePopState);
+    }
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, [expandedImage]);
+
   return (
-    <section className="w-full flex flex-col items-center py-20 bg-gray-950 gap-12">
+    <section className="w-full flex flex-col items-center py-20 bg-gray-950 gap-12 relative">
       {cards.map((card, index) => (
         <motion.div
           key={index}
@@ -60,14 +73,21 @@ export default function DiagonalSplitCards() {
           className="relative w-[95%] md:w-[85%] lg:w-[75%] rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row"
         >
           {/* Lado da Imagem */}
-          <div
-            className="w-full md:w-1/2 h-64 md:h-auto z-0"
-            style={{
-              backgroundImage: `url('${card.image}')`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          ></div>
+          <div className="relative w-full md:w-1/2 h-64 md:h-auto">
+            <div
+              className="w-full h-full bg-cover bg-center cursor-pointer"
+              style={{ backgroundImage: `url('${card.image}')` }}
+              onClick={() => setExpandedImage(card.image)}
+            />
+
+            {/* Ícone de expandir */}
+            <button
+              onClick={() => setExpandedImage(card.image)}
+              className="absolute top-3 left-3 bg-black/40 text-white p-1.5 rounded-full hover:bg-black/70 transition"
+            >
+              <Maximize2 className="w-4 h-4" />
+            </button>
+          </div>
 
           {/* Lado do Texto */}
           <div className="relative w-full md:w-1/2 flex flex-col justify-center px-6 md:px-12 py-10 bg-gray-900/95 text-white z-10">
@@ -116,6 +136,41 @@ export default function DiagonalSplitCards() {
           </div>
         </motion.div>
       ))}
+
+      {/* Modal da Imagem Expandida */}
+      <AnimatePresence>
+        {expandedImage && (
+          <motion.div
+            key="overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
+            onClick={() => setExpandedImage(null)}
+          >
+            <motion.img
+              src={expandedImage}
+              alt="Imagem expandida"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="max-w-[90%] max-h-[85%] rounded-xl object-contain shadow-2xl"
+            />
+
+            {/* Botão de fechar */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setExpandedImage(null);
+              }}
+              className="absolute top-5 right-5 bg-white/20 text-white p-2 rounded-full hover:bg-white/40 transition"
+            >
+              <X className="w-6 h-6" />
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

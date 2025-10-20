@@ -5,7 +5,9 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+
 import Home from "./pages/Home/index";
+import Sobre from "./pages/Sobre/Index";
 
 import Logo from "/public/img/logo.png"; // substitua pelo caminho da sua logo
 
@@ -49,6 +51,7 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/Sobre" element={<Sobre />} />
           </Routes>
           <Footer />
         </BrowserRouter>
