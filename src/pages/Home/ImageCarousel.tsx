@@ -1,11 +1,8 @@
-"use client"; // Se estiver usando Next.js App Router
-import { useState, useRef } from "react";
+import { useRef, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay, Pagination } from "swiper/modules";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+import { Navigation, Autoplay } from "swiper/modules";
+import "swiper/css"; 
 
 const images = [
   "/img/projetos/marmore1.jpeg",
@@ -21,64 +18,69 @@ const images = [
 
 export default function ImageCarousel() {
   const swiperRef = useRef<any>(null);
-  const [autoplayPaused, setAutoplayPaused] = useState(false);
+  const [progress, setProgress] = useState(0);
+
+  const autoplayDelay = 5000; // 5s
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) return 0;
+        return prev + 100 / (autoplayDelay / 100); // atualiza a cada 100ms
+      });
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleSlideChange = () => {
+    setProgress(0);
+  };
 
   const handlePause = () => {
-    setAutoplayPaused(true);
     if (swiperRef.current?.swiper.autoplay) swiperRef.current.swiper.autoplay.stop();
     setTimeout(() => {
       if (swiperRef.current?.swiper.autoplay) swiperRef.current.swiper.autoplay.start();
-      setAutoplayPaused(false);
-    }, 5000); // pausa 5s ao clicar
+    }, 5000);
   };
 
   return (
     <section className="w-full flex flex-col lg:flex-row items-center justify-center gap-12 py-20 bg-gray-950 text-white px-6 overflow-hidden">
       {/* Carousel */}
       <div className="relative w-full lg:w-2/3 flex justify-center items-center">
-        {/* Setas */}
-        <button
-          onClick={() => swiperRef.current?.swiper.slidePrev()}
-          className="absolute left-3 top-1/2 z-20 bg-black/40 hover:bg-black/60 rounded-full p-2 transition"
-        >
-          <ChevronLeft className="w-6 h-6" />
-        </button>
-        <button
-          onClick={() => swiperRef.current?.swiper.slideNext()}
-          className="absolute right-3 top-1/2 z-20 bg-black/40 hover:bg-black/60 rounded-full p-2 transition"
-        >
-          <ChevronRight className="w-6 h-6" />
-        </button>
-
-        {/* Swiper */}
         <Swiper
-          modules={[Navigation, Autoplay, Pagination]}
+          modules={[Navigation, Autoplay]}
           navigation
           loop
-          autoplay={{ delay: 5000, disableOnInteraction: false }}
-          pagination={{ clickable: true, type: "progressbar" }}
+          autoplay={{ delay: autoplayDelay, disableOnInteraction: false }}
           ref={swiperRef}
-          onSlideChange={handlePause}
+          onSlideChange={handleSlideChange}
           className="w-full h-96 sm:h-[500px] rounded-3xl overflow-hidden"
         >
           {images.map((img, i) => (
             <SwiperSlide key={i}>
               <div className="relative w-full h-full">
-                {/* Imagem de fundo desfocada */}
                 <img
                   src={img}
                   className="absolute inset-0 w-full h-full object-cover rounded-3xl blur-sm brightness-75 z-0"
                 />
-                {/* Imagem principal */}
                 <img
                   src={img}
-                  className="absolute inset-0 w-full h-full object-cover rounded-3xl z-10"
+                  className="absolute inset-0 w-full h-full object-cover rounded-3xl z-10 cursor-pointer"
                   onClick={handlePause}
                 />
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
+
+        {/* Barra de progresso do autoplay */}
+        <div className="absolute bottom-2 left-0 w-full h-1 z-5 bg-white/30 rounded">
+          <div
+            className="h-full bg-yellow-400 rounded transition-all duration-100 linear"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
       </div>
 
       {/* Texto */}
@@ -90,9 +92,12 @@ export default function ImageCarousel() {
           Explore nossos projetos e veja a qualidade e sofisticação que entregamos
           em cada detalhe — com acabamentos de alto padrão e um toque de elegância.
         </p>
-        <button className="mt-4 bg-yellow-400 text-gray-900 font-semibold px-6 py-3 rounded-full shadow-lg hover:shadow-yellow-500/40 transition">
-          Ver Galeria Completa
-        </button>
+        <Link
+  to="/Galeria" 
+  className="mt-4 bg-yellow-400 text-gray-900 font-semibold px-6 py-3 rounded-full shadow-lg hover:shadow-yellow-500/40 transition inline-block text-center"
+>
+  Ver Galeria Completa
+</Link>
       </div>
     </section>
   );

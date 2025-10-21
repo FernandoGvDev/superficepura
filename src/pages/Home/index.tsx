@@ -3,6 +3,8 @@ import Hero from './Hero';
 import FeatureCards from './FeatureCards';
 import DiagonalSection from './DiagonalSection';
 import ImageCarousel from './ImageCarousel';
+import AboutSection from './AboutSection';
+import TrustCards from './TrustCards';
 
 const Home: React.FC = () => {
   return (
@@ -11,6 +13,8 @@ const Home: React.FC = () => {
     <FeatureCards />
     <DiagonalSection />
     <ImageCarousel />
+    <AboutSection />
+    <TrustCards />
     </section>
   );
 }
