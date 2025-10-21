@@ -14,10 +14,19 @@ export default function Header() {
   ];
 
   const dropdownVariants = {
-    hidden: { opacity: 0, y: -20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } },
-    exit: { opacity: 0, y: -20, transition: { duration: 0.2, ease: "easeIn" } },
-  };
+  hidden: { opacity: 0, y: -20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }, // easeOut
+  },
+  exit: {
+    opacity: 0,
+    y: -20,
+    transition: { duration: 0.2, ease: [0.42, 0, 1, 1] }, // easeIn
+  },
+};
+
 
   const linkHover = { scale: 1.05, color: "#f59e0b" }; // hover animado
 
