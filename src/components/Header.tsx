@@ -1,8 +1,11 @@
+// src/components/Header.tsx
 import { useState } from "react";
 import { Menu, X, Instagram, Facebook } from "lucide-react";
 import { Link } from "react-router-dom";
 import { dados } from "../assets/dados";
 import { motion, AnimatePresence } from "framer-motion";
+import type { Variants } from "framer-motion";
+
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -13,22 +16,22 @@ export default function Header() {
     { name: "Galeria", path: "/Galeria" },
   ];
 
-  const dropdownVariants = {
-  hidden: { opacity: 0, y: -20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }, // easeOut
-  },
-  exit: {
-    opacity: 0,
-    y: -20,
-    transition: { duration: 0.2, ease: [0.42, 0, 1, 1] }, // easeIn
-  },
-};
+  // Variants compatíveis com TS
+  const dropdownVariants: Variants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.3, ease: "easeOut" } 
+    },
+    exit: { 
+      opacity: 0, 
+      y: -20, 
+      transition: { duration: 0.2, ease: "easeIn" } 
+    },
+  };
 
-
-  const linkHover = { scale: 1.05, color: "#f59e0b" }; // hover animado
+  const linkHover = { scale: 1.05, color: "#f59e0b" }; // Hover animado
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-sm">
@@ -66,7 +69,7 @@ export default function Header() {
           ))}
         </ul>
 
-        {/* Botão menu hambúrguer (mobile e desktop) */}
+        {/* Botão menu hambúrguer */}
         <button
           className="text-gray-200 z-10 bg-gray-900 rounded-full p-2"
           onClick={() => setOpen(!open)}
@@ -74,18 +77,18 @@ export default function Header() {
           {open ? <X size={28} /> : <Menu size={28} />}
         </button>
 
-        {/* Dropdown animado */}
+        {/* Dropdown mobile */}
         <AnimatePresence>
           {open && (
             <motion.div
-              className="absolute top-full right-0 md:right-6 bg-white w-64 py-4 rounded-b-lg z-100 shadow-lg"
+              className="absolute top-full right-0 md:right-6 bg-white w-64 py-4 rounded-b-lg z-50 shadow-lg"
               initial="hidden"
               animate="visible"
               exit="exit"
               variants={dropdownVariants}
             >
               <ul className="flex flex-col items-center gap-3">
-                {/* Links do menu (apenas mobile) */}
+                {/* Links mobile */}
                 <div className="md:hidden w-full">
                   {links.map((link) => (
                     <motion.li
@@ -106,19 +109,23 @@ export default function Header() {
 
                 {/* Telefones */}
                 <div className="border-t md:border-t-0 border-gray-300 text-center w-full mt-2">
-                  {dados.telefones.map((tel, i) => (
-                    <motion.a
-                      key={i}
-                      href={`https://wa.me/55${tel.numero.replace(/\D/g, "")}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block text-black text-base bg-gray-200 hover:bg-gray-400 py-2 my-2 rounded-lg cursor-pointer"
-                      whileHover={{ scale: 1.05, backgroundColor: "#fbbf24", color: "#000" }}
-                      transition={{ type: "spring", stiffness: 300 }}
-                    >
-                      Falar com {tel.nome}
-                    </motion.a>
-                  ))}
+                  {dados.telefones.map((tel, i) => {
+                    const numeroFormatado = tel.numero.replace(/\D/g, "");
+                    const linkWhats = `https://wa.me/55${numeroFormatado}`;
+                    return (
+                      <motion.a
+                        key={i}
+                        href={linkWhats}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block text-black text-base bg-gray-200 hover:bg-gray-400 py-2 my-2 rounded-lg cursor-pointer"
+                        whileHover={{ scale: 1.05, backgroundColor: "#fbbf24", color: "#000" }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                      >
+                        Falar com {tel.nome}
+                      </motion.a>
+                    );
+                  })}
                 </div>
 
                 {/* Redes sociais */}

@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 
 import Home from "./pages/Home/index";
 import Sobre from "./pages/Sobre/Index";
+import Galeria from "./pages/Galeria/index"
 
 import Logo from "/public/img/logo.png"; // substitua pelo caminho da sua logo
 
@@ -52,6 +53,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/Sobre" element={<Sobre />} />
+            <Route path="/Galeria" element={<Galeria />} />
           </Routes>
           <Footer />
         </BrowserRouter>
