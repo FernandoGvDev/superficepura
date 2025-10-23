@@ -8,7 +8,7 @@ export const dados = {
   ],
 
   endereco: {
-    rua: "Av. Esperança, 395",
+    rua: "Av. Esperança, 403",
     bairro: "Campo da Vila",
     cidade: "Santana de Parnaíba",
     estado: "SP",

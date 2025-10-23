@@ -17,7 +17,9 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center gap-6 text-gray-300">
           {dados.telefones.map((tel, i) => {
             const numeroFormatado = tel.numero.replace(/\D/g, "");
-            const linkWhats = `https://wa.me/55${numeroFormatado}?text=Ol%C3%A1!%20Gostaria%20de%20mais%20informações%20sobre%20a%20${encodeURIComponent(dados.nomeEmpresa)}.`;
+            const linkWhats = `https://wa.me/55${numeroFormatado}?text=Ol%C3%A1!%20Gostaria%20de%20mais%20informações%20sobre%20a%20${encodeURIComponent(
+              dados.nomeEmpresa
+            )}.`;
 
             return (
               <a
@@ -47,14 +49,34 @@ export default function Footer() {
 
         {/* Informações */}
         <div className="text-gray-400 text-center md:text-right text-sm md:text-base">
-          <p>Endereço: {dados.endereco.rua}, {dados.endereco.bairro} - {dados.endereco.cidade}, {dados.endereco.estado}</p>
+          <p>
+            Endereço: {dados.endereco.rua}, {dados.endereco.bairro} -{" "}
+            {dados.endereco.cidade}, {dados.endereco.estado}
+          </p>
           <p>CEP: {dados.endereco.cep}</p>
-          <p>© {new Date().getFullYear()} {dados.nomeEmpresa}. Todos os direitos reservados.</p>
+          <p>
+            © {new Date().getFullYear()} {dados.nomeEmpresa}. Todos os direitos
+            reservados.
+          </p>
+
+          {/* Crédito discreto */}
+          <div className="bg-gray-800 h-1 w-100% mt-5"/>
+          <p className="text-xs text-gray-500 mt-5">
+            Desenvolvido por{" "}
+            <a
+              href="https://codificaweb.pages.dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-yellow-400 hover:text-yellow-300 transition-colors"
+            >
+              Codifica Web
+            </a>
+          </p>
         </div>
       </div>
 
       {/* Decoração leve */}
-      <div className="absolute -top-10 -left-10 w-32 h-32 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute -top-10 -left-10 w-32 h-32 bg-white/5 rounded-full blur-3xl animate-pulse "></div>
       <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
     </footer>
   );

@@ -14,7 +14,7 @@ const cards: Card[] = [
   {
     title: "Cozinha dos sonhos:",
     description:
-      "Neste projeto, a bancada e a ilha em mármore escuro com veios claros são a grande protagonista, trazendo um toque de sofisticação e modernidade para o ambiente.",
+      "Cada detalhe deste projeto foi pensado para unir elegância e funcionalidade. A bancada e a ilha em mármore escuro com veios claros se destacam, criando um ambiente sofisticado, durável e digno de uma cozinha de revista.",
     image: "/img/marmore-detalhe.jpeg",
     highlights: ["Cozinha dos sonhos:"],
     attributes: [
@@ -26,7 +26,7 @@ const cards: Card[] = [
   {
     title: "Banheiro elegante:",
     description:
-      "Lavabo com design exclusivo. Neste projeto, a bancada e o revestimento de parede criam um visual clean e sofisticado. A execução precisa garante um acabamento impecável.",
+      "Um lavabo que impressiona à primeira vista. O design exclusivo e o acabamento impecável valorizam cada centímetro do espaço. Aqui, o mármore é protagonista, refletindo requinte e qualidade em cada traço.",
     image: "/img/projetos/lavabo.jpeg",
     highlights: ["Banheiro elegante:"],
     attributes: [
@@ -38,7 +38,7 @@ const cards: Card[] = [
   {
     title: "Sala de estar luxuosa:",
     description:
-      "Uma mesa de centro exclusiva, esculpida em uma única peça de mármore com veios exóticos. A marmoraria transformando ambientes com a grandiosidade da pedra natural.",
+      "Uma peça única, esculpida com maestria. A mesa de centro em mármore exótico eleva o ambiente e transmite sofisticação natural. Um exemplo do cuidado e da excelência que entregamos em cada projeto.",
     image: "/img/projetos/mesa-centro.jpeg",
     highlights: ["Sala de estar luxuosa:"],
     attributes: [
@@ -48,6 +48,7 @@ const cards: Card[] = [
     ],
   },
 ];
+
 
 export default function DiagonalSplitCards() {
   const [expandedImage, setExpandedImage] = useState<string | null>(null);
@@ -70,7 +71,9 @@ export default function DiagonalSplitCards() {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="relative w-[95%] md:w-[85%] lg:w-[75%] rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row"
+          className=" relative w-[95%] md:w-[85%] lg:w-[75%] rounded-3xl overflow-hidden 
+shadow-2xl flex flex-col md:flex-row border-2 border-yellow-500/20 
+hover:border-yellow-500/40 transition-all duration-500 hover:scale-[1.01]"
         >
           {/* Lado da Imagem */}
           <div className="relative w-full md:w-1/2 h-64 md:h-auto">

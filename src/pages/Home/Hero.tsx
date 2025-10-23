@@ -37,6 +37,11 @@ export default function Hero() {
             <span className="text-[#daa32f] drop-shadow-md">
               acabamentos finos
             </span>
+            <motion.div
+              className="mx-auto mt-4 h-[2px] w-0 bg-gradient-to-r from-yellow-400 to-amber-600"
+              animate={{ width: "100%" }}
+              transition={{ delay: 1.2, duration: 1 }}
+            />
           </motion.h1>
 
           <motion.p
@@ -102,7 +107,6 @@ export default function Hero() {
         }}
       >
         <div className="absolute inset-0 bg-black/60 z-0" />
-
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -118,15 +122,20 @@ export default function Hero() {
             Marmoraria de{" "}
             <span className="text-[#daa32f]">luxo</span> e{" "}
             <span className="text-[#daa32f]">acabamentos finos</span>
+            <motion.div
+              className="mx-auto mt-4 h-[2px] w-0 bg-gradient-to-r from-yellow-400 to-amber-600"
+              animate={{ width: "100%" }}
+              transition={{ delay: 1.2, duration: 1 }}
+            />
           </motion.h1>
-
           <motion.p
-            className="mt-4 text-2xl text-gray-200"
+            className="mt-10 text-2xl text-gray-200"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 1 }}
           >
             Elegância e perfeição em cada detalhe.
+
           </motion.p>
 
           {/* === CTA MOBILE === */}
