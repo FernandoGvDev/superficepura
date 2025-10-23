@@ -27,7 +27,7 @@ export default function Hero() {
           className="relative z-10 max-w-2xl px-6"
         >
           <motion.h1
-            className="text-5xl md:text-6xl font-bold leading-tight"
+            className="text-5xl md:text-6xl font-bold leading-tight playfair-display"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 1 }}
@@ -110,7 +110,7 @@ export default function Hero() {
           className="relative z-10 px-5"
         >
           <motion.h1
-            className="text-4xl font-bold leading-snug"
+            className="text-4xl font-bold leading-snug playfair-display"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 1 }}
