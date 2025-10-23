@@ -35,7 +35,7 @@ export default function AboutSection() {
           Do planejamento à instalação, cada etapa recebe atenção especial, garantindo que cada peça seja única e perfeita para o seu ambiente.
         </p>
         <Link
-          to="/sobre"
+          to="/Sobre"
           className="mt-4 px-8 py-3 border-2 border-yellow-400 text-yellow-400 font-semibold rounded-full backdrop-blur-sm bg-white/10 hover:bg-yellow-400 hover:text-gray-900 hover:shadow-lg hover:shadow-yellow-400/50 transition-all duration-300"
         >
           Saiba mais
