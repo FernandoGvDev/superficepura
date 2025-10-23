@@ -1,11 +1,9 @@
-// src/components/Header.tsx
 import { useState } from "react";
 import { Menu, X, Instagram, Facebook } from "lucide-react";
 import { Link } from "react-router-dom";
 import { dados } from "../assets/dados";
 import { motion, AnimatePresence } from "framer-motion";
 import type { Variants } from "framer-motion";
-
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -16,7 +14,6 @@ export default function Header() {
     { name: "Galeria", path: "/Galeria" },
   ];
 
-  // Variants compatíveis com TS
   const dropdownVariants: Variants = {
     hidden: { opacity: 0, y: -20 },
     visible: { 
@@ -31,10 +28,10 @@ export default function Header() {
     },
   };
 
-  const linkHover = { scale: 1.05, color: "#f59e0b" }; // Hover animado
+  const linkHover = { scale: 1.05, color: "#f59e0b" };
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-sm">
+    <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/60 shadow-lg border-b border-amber-100">
       <nav
         className="flex items-center justify-between px-6 py-3 relative"
         style={{
@@ -43,15 +40,14 @@ export default function Header() {
           backgroundPosition: "center",
         }}
       >
-        {/* Fundo diagonal atrás da logo */}
         <div className="absolute top-0 left-0 h-full w-1/3 bg-gray-50 -skew-x-12 origin-top-left z-0" />
 
-        {/* Logo */}
+        {/* ✅ Logo ajustada */}
         <div className="relative z-10 flex items-center space-x-2">
           <img
             src="/img/logo.png"
             alt="Logo"
-            className="md:ml-24 h-20 w-auto object-contain rounded-full"
+            className="md:ml-24 h-20 w-auto object-contain rounded-full drop-shadow-[0_4px_6px_rgba(0,0,0,0.3)] hover:scale-105 transition-transform duration-300"
           />
         </div>
 
@@ -61,7 +57,7 @@ export default function Header() {
             <motion.li key={link.name} whileHover={linkHover}>
               <Link
                 to={link.path}
-                className="text-black font-medium hover:text-amber-600 transition-colors duration-300 bg-gray-600/80 p-4 rounded-full"
+                className="text-black font-medium hover:text-white transition-colors duration-300 bg-gray-600/80 p-4 rounded-full hover:bg-gradient-to-r hover:from-amber-800 hover:to-yellow-900"
               >
                 {link.name}
               </Link>
@@ -69,9 +65,9 @@ export default function Header() {
           ))}
         </ul>
 
-        {/* Botão menu hambúrguer */}
+        {/* ✅ Botão menu com h-20 */}
         <button
-          className="text-gray-200 z-10 bg-gray-900 rounded-full p-2"
+          className="text-gray-200 z-10 bg-gray-900 rounded-full p-2 flex items-center justify-center"
           onClick={() => setOpen(!open)}
         >
           {open ? <X size={28} /> : <Menu size={28} />}
@@ -88,7 +84,6 @@ export default function Header() {
               variants={dropdownVariants}
             >
               <ul className="flex flex-col items-center gap-3">
-                {/* Links mobile */}
                 <div className="md:hidden w-full">
                   {links.map((link) => (
                     <motion.li
@@ -107,7 +102,6 @@ export default function Header() {
                   ))}
                 </div>
 
-                {/* Telefones */}
                 <div className="border-t md:border-t-0 border-gray-300 text-center w-full mt-2">
                   {dados.telefones.map((tel, i) => {
                     const numeroFormatado = tel.numero.replace(/\D/g, "");
@@ -128,13 +122,13 @@ export default function Header() {
                   })}
                 </div>
 
-                {/* Redes sociais */}
+                {/* ✅ Redes sociais com brilho leve */}
                 <div className="flex justify-center gap-4 mt-2">
                   <motion.a
                     href={dados.redesSociais.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ scale: 1.2, color: "#ec4899" }}
+                    whileHover={{ scale: 1.2, color: "#ec4899", filter: "drop-shadow(0 0 6px #ec4899)" }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     <Instagram size={22} />
@@ -143,7 +137,7 @@ export default function Header() {
                     href={dados.redesSociais.facebook}
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ scale: 1.2, color: "#3b82f6" }}
+                    whileHover={{ scale: 1.2, color: "#3b82f6", filter: "drop-shadow(0 0 6px #3b82f6)" }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     <Facebook size={22} />

@@ -1,5 +1,3 @@
-// src/components/TrustCards.tsx
-"use client";
 import { motion } from "framer-motion";
 
 // Array de motivos com frase e fundo de textura
@@ -7,32 +5,32 @@ const trustReasons = [
   {
     title: "Qualidade Superior",
     description: "Materiais premium e acabamento impecável.",
-    bgImage: "/img/texturas/marmore1.jpg", // caminho da textura
+    bgImage: "/img/projetos/marmore1.jpeg", // caminho da textura
   },
   {
     title: "Equipe Especializada",
     description: "Profissionais treinados e experientes.",
-    bgImage: "/img/texturas/marmore2.jpg",
+    bgImage: "/img/projetos/marmore2.jpeg",
   },
   {
     title: "Projetos Personalizados",
     description: "Soluções sob medida para cada cliente.",
-    bgImage: "/img/texturas/marmore3.jpg",
+    bgImage: "/img/projetos/marmore3.jpeg",
   },
   {
     title: "Entrega Pontual",
     description: "Cumprimento de prazos sem surpresas.",
-    bgImage: "/img/texturas/marmore4.jpg",
+    bgImage: "/img/projetos/marmore4.jpeg",
   },
   {
     title: "Satisfação Garantida",
     description: "Atenção aos detalhes e ao cliente.",
-    bgImage: "/img/texturas/marmore5.jpg",
+    bgImage: "/img/projetos/marmore5.jpeg",
   },
   {
     title: "Inovação",
     description: "Técnicas modernas e designs exclusivos.",
-    bgImage: "/img/texturas/marmore6.jpg",
+    bgImage: "/img/projetos/marmore6.jpeg",
   },
 ];
 
@@ -59,7 +57,7 @@ export default function TrustCards() {
             />
 
             {/* Overlay escuro para contraste */}
-            <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
+            <div className="absolute inset-0 bg-black/20 backdrop-blur-xs" />
 
             {/* Conteúdo */}
             <div className="relative z-10 flex flex-col justify-center items-center h-full text-center px-4">

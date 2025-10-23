@@ -5,7 +5,7 @@ import { HiArrowUp, HiArrowDown } from "react-icons/hi2"; // ícones modernos
 
 // Importa automaticamente todas as imagens da pasta projetos
 const images: string[] = Object.values(
-  import.meta.glob("/src/assets/projetos/*.{jpg,png,jpeg}", { eager: true, import: "default" })
+  import.meta.glob("/src/assets/projetos/*.{jpg,png,jpeg,webp}", { eager: true, import: "default" })
 );
 
 export default function Galeria() {

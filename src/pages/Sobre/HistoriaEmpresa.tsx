@@ -32,41 +32,45 @@ export default function HistoriaEmpresa() {
           viewport={{ once: true }}
           className="text-base md:text-lg leading-relaxed font-light text-gray-200"
         >
-          Fundada em <span className="text-[#FF6600] font-medium">2008</span>, a{" "}
-          <span className="font-semibold text-white">Superfície Pura</span> nasceu
-          do sonho de transformar pedras naturais em obras de arte que eternizam
-          histórias. Criada por artesãos e especialistas apaixonados pelo que
-          fazem, nossa trajetória começou com um pequeno ateliê e um grande ideal:
-          elevar o padrão de qualidade em mármores e granitos, combinando
-          <span className="text-[#FF6600] font-medium"> tradição e inovação</span>{" "}
-          em cada detalhe.
+          Antes mesmo de existir a{" "}
+          <span className="font-semibold text-white">Superfície Pura</span>, já
+          existia a paixão pelo trabalho com pedras. Foram mais de{" "}
+          <span className="text-[#FF6600] font-medium">20 anos de dedicação</span>
+          , aprendizados e aperfeiçoamento que deram origem, em{" "}
+          <span className="text-[#FF6600] font-medium">2014</span>, à empresa que
+          hoje busca ser referência em mármores e granitos de alto padrão.
           <br />
           <br />
-          Com o passar dos anos, consolidamos nossa presença no mercado graças
-          ao compromisso inabalável com a{" "}
+          Desde então, seguimos com o mesmo propósito: transformar pedras
+          naturais em obras únicas que unem{" "}
+          <span className="text-[#FF6600] font-medium">
+            beleza, durabilidade e exclusividade
+          </span>
+          .
+          <br />
+          <br />
+          Com o passar dos anos, consolidamos nossa presença no mercado graças ao
+          compromisso inabalável com a{" "}
           <span className="text-[#FF6600] font-medium">excelência</span>. Cada
           peça produzida reflete a união entre tecnologia de ponta e o olhar
-          cuidadoso de quem entende que o luxo está nos detalhes. Expandimos
-          nossa estrutura, investimos em maquinários modernos e capacitamos
-          nossa equipe para garantir resultados impecáveis — desde o corte até o
-          acabamento final.
+          cuidadoso de quem entende que o luxo está nos detalhes.
           <br />
           <br />
-          Hoje, após mais de{" "}
-          <span className="font-semibold text-white">15 anos de dedicação</span>,
-          a Superfície Pura é sinônimo de{" "}
-          <span className="text-[#FF6600] font-medium">confiança e requinte</span>.
-          Atuamos em projetos residenciais, corporativos e comerciais, sempre
+          Hoje, a Superfície Pura é sinônimo de{" "}
+          <span className="text-[#FF6600] font-medium">confiança e requinte</span>
+          . Atuamos em projetos residenciais, corporativos e comerciais, sempre
           com o mesmo propósito: transformar ambientes comuns em espaços
           extraordinários. Nosso nome carrega uma promessa — a de oferecer
           produtos que unem{" "}
-          <span className="text-[#FF6600] font-medium">beleza, durabilidade e exclusividade</span>,
-          entregando uma experiência premium do início ao fim.
+          <span className="text-[#FF6600] font-medium">
+            beleza, durabilidade e exclusividade
+          </span>
+          , entregando uma experiência premium do início ao fim.
           <br />
           <br />
           Acreditamos que cada superfície conta uma história. E é essa essência
-          que nos move: criar obras únicas que refletem o estilo, o bom gosto e
-          a personalidade de quem confia em nós. Porque mais do que trabalhar com
+          que nos move: criar obras únicas que refletem o estilo, o bom gosto e a
+          personalidade de quem confia em nós. Porque mais do que trabalhar com
           pedras, nós moldamos sonhos — com precisão, arte e paixão.
         </motion.p>
       </div>

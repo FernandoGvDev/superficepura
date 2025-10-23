@@ -22,7 +22,7 @@ export default function SobreHeader() {
         <h1 className="text-4xl md:text-5xl font-extrabold text-black mb-4 drop-shadow-sm">
           Sobre Nós
         </h1>
-        <p className="text-lg md:text-xl text-[#FF6600] font-light">
+        <p className="text-lg md:text-xl text-[#ce5200] font-light">
           Tradição e excelência em mármores e granitos há mais de 15 anos.
         </p>
       </motion.div>

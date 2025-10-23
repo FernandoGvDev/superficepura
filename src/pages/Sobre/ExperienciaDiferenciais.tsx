@@ -4,7 +4,6 @@ import { Clock, Users, Settings, Handshake, Truck, Shield } from "lucide-react";
 const diferenciais = [
   { icon: Clock, title: "Mais de 15 anos de experiência" },
   { icon: Users, title: "Equipe especializada" },
-  { icon: Settings, title: "Tecnologia de corte moderno (CNC)" },
   { icon: Handshake, title: "Atendimento personalizado" },
   { icon: Truck, title: "Entrega rápida" },
   { icon: Shield, title: "Garantia de qualidade" },
