@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Clock, Users, Settings, Handshake, Truck, Shield } from "lucide-react";
+import { Clock, Users, Handshake, Truck, Shield } from "lucide-react";
 
 const diferenciais = [
   { icon: Clock, title: "Mais de 15 anos de experiência" },
