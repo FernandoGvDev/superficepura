@@ -11,9 +11,12 @@ import Sobre from "./pages/Sobre/Index";
 import Galeria from "./pages/Galeria/index"
 import Sticywhatsapp from "./components/Sticywhatsapp";
 
-import Logo from "/public/img/logo.png"; // substitua pelo caminho da sua logo
+import Logo from "/public/img/logo.png"; 
+
+import { useWhatsAnalytics } from "./components/useWhatsAnalytics";
 
 function App() {
+  useWhatsAnalytics();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
