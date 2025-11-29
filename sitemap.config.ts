@@ -7,11 +7,9 @@ export default {
     { userAgent: "*", allow: "/" },
   ],
 
-  extendRoutes() {
-    return [
-      "/",
-      "/Sobre",
-      "/Galeria",
-    ];
-  }
+  dynamicRoutes: [
+    "/",
+    "/Sobre",
+    "/Galeria",
+  ]
 };
