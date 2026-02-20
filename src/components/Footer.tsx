@@ -1,7 +1,8 @@
 // src/components/Footer.tsx
-import { Instagram, MessageCircle } from "lucide-react";
+import { Instagram, MessageCircle, Mail} from "lucide-react";
 import Logo from "/public/img/logo.png"; // substitua pelo seu logo
 import { dados } from "../assets/dados";
+
 
 export default function Footer() {
   return (
@@ -45,6 +46,14 @@ export default function Footer() {
             <Instagram className="w-6 h-6" />
             <span>Instagram</span>
           </a>
+
+          <a
+  href="mailto:contato@superficiepura.com.br"
+  className="flex items-center gap-2 hover:text-yellow-400 transition-colors duration-300"
+>
+  <Mail className="w-6 h-6" />
+  <span>contato@superficiepura.com.br</span>
+</a>
         </div>
 
         {/* Informações */}

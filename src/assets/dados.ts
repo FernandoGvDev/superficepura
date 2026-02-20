@@ -3,7 +3,7 @@ export const dados = {
   site: "https://www.superficiepura.com.br",
 
   telefones: [
-    { nome: "Weslley", numero: "11976930484" },
+    { nome: "comercial", numero: "11913240682" },
     { nome: "Assistente de Vendas", numero: "11940852615" },
   ],
 

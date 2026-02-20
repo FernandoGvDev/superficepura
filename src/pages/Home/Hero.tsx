@@ -61,7 +61,7 @@ export default function Hero() {
             transition={{ delay: 1.2, duration: 1 }}
           >
             <motion.a
-              href="https://wa.me/5511976930484?text=Olá!%20Gostaria%20de%20falar%20com%20um%20especialista%20em%20mármores."
+              href="https://wa.me/5511913240682?text=Olá!%20Gostaria%20de%20falar%20com%20um%20especialista%20em%20mármores."
               target="_blank"
               rel="noopener noreferrer"
               className="
@@ -146,7 +146,7 @@ export default function Hero() {
             transition={{ delay: 1.2, duration: 1 }}
           >
             <motion.a
-              href="https://wa.me/5511976930484?text=Olá!%20Gostaria%20de%20falar%20com%20um%20especialista%20em%20mármores."
+              href="https://wa.me/5511913240682?text=Olá!%20Gostaria%20de%20falar%20com%20um%20especialista%20em%20mármores."
               target="_blank"
               rel="noopener noreferrer"
               className="

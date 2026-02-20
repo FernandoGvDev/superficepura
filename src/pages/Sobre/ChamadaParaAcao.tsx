@@ -29,7 +29,7 @@ export default function ChamadaParaAcao() {
             return (
               <a
                 key={index}
-                href={`https://wa.me/${numeroWhatsApp}`}
+                href={`https://wa.me/55${numeroWhatsApp}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative inline-block px-8 py-3 rounded-lg border-2 border-orange-500 text-orange-500 font-semibold transition-all duration-300
